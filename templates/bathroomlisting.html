@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+<body>
+<h1>Bathrooms</h1>
+<p>You have added the following bathrooms to your household:</p>
+
+<table style="width:100%">
+  <tr>
+    <th>Bathroom Number</th>
+    <th>Type</th>
+    <th>Primary</th>
+  </tr>
+  {% for row in data %}
+  <tr>    
+    <td>{{ row['bathroom_order'] }}</td>
+    <td>{{ row['type'] }}</td>
+    <td>{{ row['whether_primary'] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<a href="{{ url_for('add_bathroom') }}">Add another bathroom</a>
+<br>
+<a href="{{ url_for('add_appliance') }}"><input type="submit" value="Next" id="bathroomlisting_next" name="Bathroomlisting_next"></a>
+
+</body>
+</html>
+
+{% endblock %}

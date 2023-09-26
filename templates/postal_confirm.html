@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Enter Household Info</h1>
+    <p>
+        You entered the following postal code:<br>
+        {{ postal_code }}<br>
+        {{ city }}, {{ state }}<br>
+        Is this correct?
+    </p>
+
+    <a href="{{ url_for('phonenumber') }}"><input type="button" id="postalcode_yes" name="postalcode_yes" value="Yes"></a>
+    <a href="{{ url_for('postalcode') }}"><input type="button" id="postalcode_no" name="postalcode_no" value="No"></a>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+<body>
+<h1>Appliances</h1>
+<p>You have added the following appliances to your household:</p>
+
+<table style="width:100%">
+  <tr>
+    <th>Appliance Number</th>
+    <th>Type</th>
+    <th>Manufacturer</th>
+    <th>Model</th>
+  </tr>
+  {% for row in data %}
+  <tr>    
+    <td>{{ row['appliance_order'] }}</td>
+    <td>{{ row['appliance_type'] }}</td>
+    <td>{{ row['manufacturer'] }}</td>
+    <td>{{ row['model_name'] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<a href="{{ url_for('add_appliance') }}">Add another appliance</a>
+<br>
+<a href="{{ url_for('wrapping_up') }}"><input type="submit" value="Next" id="appliancelisting_next" name="Appliancelisting_next"></a>
+
+</body>
+</html>
+
+{% endblock %}

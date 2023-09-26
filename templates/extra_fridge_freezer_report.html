@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Extra Fridge Freezer Report</h1>
+	<h2>Number of households more than one fridge or freezer</h2>
+		<p>{{ total_count["household_count"] }}</p>
+
+	<h2>Top 10 states with mulitple fridge/freezers</h2>
+	<p>
+	<table>
+		<tr>
+			<th>State</th>
+			<th>Household Count</th>
+			<th>Percentage of Chest Freezers</th>
+			<th>Percentage of Upright Freezers</th>
+			<th>Percentage of Others</th>
+		<tr>
+		{% for row in data%}
+		<tr>
+			<td>{{ row['state'] }}</td>
+			<td>{{ row['household_count'] }}</td>
+			<td>{{ row['the_percentage_of_households_with_multiple_fridge_freezers_in_that_state_with_a_chest_freezer'] }}</td>
+			<td>{{ row['the_percentage_of_households_with_multiple_fridge_freezers_in_that_state_with_an_upright_freezer'] }}</td>
+			<td>{{ row['the_percentage_of_households_with_multiple_fridge_freezers_in_that_state_with_something_else'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	</p>
+
+{% endblock %}

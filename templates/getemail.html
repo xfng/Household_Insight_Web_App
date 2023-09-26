@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Enter Household Info</h1>
+    <form action=""  method="POST">
+        Please enter your email address:<br>
+        <input type="email" id="email" name="email" required> <br>
+        <div class="msg">{{ msg }}</div>
+        <input type="submit" value="Submit" id="email_submit" name="email_submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Laundry center report</h1>
+	<h2>Most common washer type and dryer heat source by state</h2>
+	<p>
+	<table>
+		<tr>
+			<th>State</th>
+			<th>Washer Type</th>
+			<th>Heat Source</th>
+		<tr>
+		{% for row in data_0%}
+		<tr>
+			<td>{{ row['state'] }}</td>
+			<td>{{ row['most_common_washer_loading_type'] }}</td>
+			<td>{{ row['most_common_dryer_heat_source'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	</p>
+
+	<h2>Number of households that have a washing machine, but not a dryer</h2>
+	<p>
+	<table>
+		<tr>
+			<th>State</th>
+			<th>Number of Households</th>
+		<tr>
+		{% for row in data_1%}
+		<tr>
+			<td>{{ row['state'] }}</td>
+			<td>{{ row['household_count'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	</p>
+
+{% endblock %}

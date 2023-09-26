@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Enter Household Info</h1>
+        <form action="" method="POST">
+        <p>
+            Please enter the following details for your household:
+        </p>
+        <p>
+            Home types:<br>
+<!--             <input list="home_type" name="home_type">
+            <datalist id="home_type"> -->
+            <select id="home_type" name="home_type" required>
+                <option value="house">house</option>
+                <option value="apartment">apartment</option>
+                <option value="townhome">townhouse</option>
+                <option value="condominium">condminium</option>
+                <option value="mobile home">mobile home</option>
+            </select><br>
+            Square footage:<br>
+            <input type="number" min="1" id="square_footage" name="square_footage" pattern="[0-9]+" required><br>
+            Occupants:<br>
+            <input type="number" min="1" step="1" id="number_of_occupants" name="number_of_occupants" pattern="[0-9]+" required><br>
+            Bedrooms:<br>
+            <input type="number" min="1" step="1" id="number_of_bedrooms" name="number_of_bedrooms" pattern="[0-9]+" required><br>
+        </p>
+        <p> <input type="submit" value="Next" id="household_next" name="household_next"></p>
+        </form>
+{% endblock %}

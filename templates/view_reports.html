@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>View reports</h1>
+	<p><a href="{{ url_for('top_25_popular_manufacturers') }}">Top 25 Popular Manufacturers</a></p>
+	<p><a href="{{ url_for('search_manufacturer_model') }}">Manufacturer / Model Search</a></p>
+	<p><a href="{{ url_for('view_avg_tv_display_size_by_state') }}">Average TV Display Size by State</a></p>
+	<p><a href="{{ url_for('extra_fridge_freezer_report') }}">Extra Fridge / Freezer Report</a></p>
+	<p><a href="{{ url_for('laundry_center_report') }}">Laundry Center Report</a></p>
+	<p><a href="{{ url_for('bathroom_statistics') }}">Bathroom Statistics</a></p>
+	<p><a href="{{ url_for('household_avg_by_radius') }}">Household Averages by Radius</a></p>
+{% endblock %}

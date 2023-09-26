@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Bathroom statistics</h1>
+	<h3>Count of all bathrooms per household:</h3>
+	<p>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_0['avg_bathroom_count'] }}</td>
+			<td>{{ data_0['max_bathroom_count'] }}</td>
+			<td>{{ data_0['min_bathroom_count'] }}</td>
+		</tr>
+	</table>
+	</p>
+
+	<h3>Count of half bathrooms per household:</h3>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_1['avg_bathroom_count'] }}</td>
+			<td>{{ data_1['max_bathroom_count'] }}</td>
+			<td>{{ data_1['min_bathroom_count'] }}</td>
+		</tr>
+	</table>
+
+	<h3>Count of full bathrooms per household:</h3>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_2['avg_bathroom_count'] }}</td>
+			<td>{{ data_2['max_bathroom_count'] }}</td>
+			<td>{{ data_2['min_bathroom_count'] }}</td>
+		</tr>
+	</table>
+
+	<h3>Count of commodes per household:</h3>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_3['avg_commodes_count'] }}</td>
+			<td>{{ data_3['max_commodes_count'] }}</td>
+			<td>{{ data_3['min_commodes_count'] }}</td>
+		</tr>
+	</table>
+
+	<h3>Count of sinks per household:</h3>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_4['avg_sinks_count'] }}</td>
+			<td>{{ data_4['max_sinks_count'] }}</td>
+			<td>{{ data_4['min_sinks_count'] }}</td>
+		</tr>
+	</table>
+
+	<h3>Count of bidets per household:</h3>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_5['avg_bidets_count'] }}</td>
+			<td>{{ data_5['max_bidets_count'] }}</td>
+			<td>{{ data_5['min_bidets_count'] }}</td>
+		</tr>
+	</table>
+
+	<h3>Count of bathtubs per household:</h3>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_6['avg_bathtubs_count'] }}</td>
+			<td>{{ data_6['max_bathtubs_count'] }}</td>
+			<td>{{ data_6['min_bathtubs_count'] }}</td>
+		</tr>
+	</table>
+
+	<h3>Count of showers per household:</h3>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_7['avg_showers_count'] }}</td>
+			<td>{{ data_7['max_showers_count'] }}</td>
+			<td>{{ data_7['min_showers_count'] }}</td>
+		</tr>
+	</table>
+
+	<h3>Count of tubs/showers per household:</h3>
+	<table>
+		<tr>
+			<th>Average Count</th>
+			<th>Maximum Count</th>
+			<th>Minimun Count</th>
+		<tr>
+		<tr>
+			<td>{{ data_8['avg_tubs_showers_count'] }}</td>
+			<td>{{ data_8['avg_tubs_showers_count'] }}</td>
+			<td>{{ data_8['avg_tubs_showers_count'] }}</td>
+		</tr>
+	</table>
+
+
+	<h3>Which state has the most bidets and how many:</h3>
+	<p>
+		<table>
+			<tr>
+				<th>State</th>
+				<th>Sum of bidets</th>
+			</tr>
+			{% for row in data_9 %}
+			<tr>
+				<td>{{ row['state'] }}</td>
+				<td>{{ row['sum_bidets_count'] }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</p>
+
+
+	<h3>Which postal code has the most bidets and how many:</h3>
+	<p>
+		<table>
+			<tr>
+				<th>Postal Code</th>
+				<th>Sum of bidets</th>
+			</tr>
+			{% for row in data_10 %}
+			<tr>
+				<td>{{ row['postal_code'] }}</td>
+				<td>{{ row['sum_bidets_count'] }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+ 	</p>
+
+	<h3>How many households (count as an integer), have only a single, primary bathroom, and no other bathrooms:</h3>
+	<p>
+		<table>
+			<tr>
+				<th>Count</th>
+			</tr>
+			{% for row in data_11 %}
+			<tr>
+				<td>{{ row['household_only_single_primary_bathroom_count'] }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</p>
+
+{% endblock %}

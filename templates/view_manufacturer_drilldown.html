@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>{{ manufacturer }}</h1>
+		<p>
+			<table>
+				<tr>
+					<th>Appliance Type</th>
+					<th>Count</th>
+				<tr>
+				<tr>
+					<td>{{ data[0]['dryer type']}}</td>
+					<td>{{ data[0]['dryer count']}}</td>
+				</tr>
+				<tr>
+					<td>{{ data[0]['washer type']}}</td>
+					<td>{{ data[0]['washer count']}}</td>
+				</tr>
+				<tr>
+					<td>{{ data[0]['refrigerator / freezer type']}}</td>
+					<td>{{ data[0]['refrigerator / freezer count']}}</td>
+				</tr>
+				<tr>
+					<td>{{ data[0]['cooker type']}}</td>
+					<td>{{ data[0]['cooker count']}}</td>
+				</tr>
+				<tr>
+					<td>{{ data[0]['tv type']}}</td>
+					<td>{{ data[0]['tv count']}}</td>
+				</tr>
+			</table>
+
+		</p>
+	
+
+{% endblock %}

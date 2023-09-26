@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- <!DOCTYPE html>
+<html> -->
+<!-- <head> -->
+<style>
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+}
+
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+
+}
+</style>
+<!-- </head>
+<body> -->
+
+  
+<h2>Add Bathrooms</h2>
+
+  <p>Please provide the details regarding the bathroom</p>
+  <p>Bathroom Type:</p>
+
+<div class="tab">
+    <button class="tablinks" onclick="Bathroom(event, 'Full')" >Full</button>
+    <button class="tablinks" onclick="Bathroom(event, 'Half')" >Half</button>
+</div>
+<div class="msg">{{ msg }}</div>
+<div id="Full" class="tabcontent">
+    <form aciton="" method="POST" name="form1">
+    Sinks:<br>
+    <input type="number" min="0" step="1" id="number_of_sinks" name="number_of_sinks" pattern="[0-9]+" required><br>
+    Commodes:<br>
+    <input type="number" min="0" step="1" id="number_of_commodes" name="number_of_commodes" pattern="[0-9]+" required><br>
+    Bidets:<br>
+    <input type="number" min="0" step="1" id="number_of_bidets" name="number_of_bidets" pattern="[0-9]+" required><br>
+    Bathtubs:<br>
+    <input type="number" min="0" step="1" id="number_of_bathtubs" name="number_of_bathtubs" pattern="[0-9]+" required><br>
+    Showers:<br>
+    <input type="number" min="0" step="1" id="number_of_showers" name="number_of_showers" pattern="[0-9]+" required><br>
+    Tub/showers:<br>
+    <input type="number" min="0" step="1" id="number_of_tub_showers" name="number_of_tubs_showers" pattern="[0-9]+" required><br>
+            
+  <!-- <div id="wrapper"> -->
+  <label for="yes_no_radio">Is this a Primary Bathroom?</label>
+  <p>
+    <input type="radio" id="yes_no_radio" name="whether_primary" value="1" checked>Yes</input> <br>
+    <input type="radio" id="yes_no_radio" name="whether_primary" value="0">No</input>
+  </p>
+  
+
+   <!-- <p> <input type="submit" value="Add" id="bathroom_next1" name="bathroom_next" onclick="form1.action='';form1.submit();"></p> -->
+   <p> <input type="submit" value="Add" id="bathroom_next1" name="bathroom_next" onclick="form1.submit();"></p>
+   </form>
+</div>
+<div id="Half" class="tabcontent">
+  <form aciton="" method="POST" name="form2">
+  Sinks:<br>
+  <input type="number" min="0" step="1" id="number_of_sinks" name="number_of_sinks" pattern="[0-9]+" required><br>
+  Commodes:<br>
+  <input type="number" min="0" step="1" id="number_of_commodes" name="number_of_commodes" pattern="[0-9]+" required><br>
+  Bidets:<br>
+  <input type="number" min="0" step="1" id="number_of_bidets" name="number_of_bidets" pattern="[0-9]+" required><br>
+  Name:<br>
+  <input type="text" id="half_bathroom_name" name="half_bathroom_name" required><br>
+
+  <!-- <p> <input type="submit" value="Add" id="bathroom_next2" name="bathroom_next" onclick="form1.action='';form1.submit();"></p> -->
+  <p> <input type="submit" value="Add" id="bathroom_next2" name="bathroom_next" onclick="form2.submit();"></p>
+  </form>
+</div>
+
+
+
+<script>
+  function Bathroom(evt, BathroomType) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(BathroomType).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  function submit(){
+
+  }
+</script>
+
+
+
+   
+<!-- </body>
+</html>  -->
+
+
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <style>
+        /* Style the tab content */
+.group {
+  display: none;
+
+}
+ </style>
+
+<h2>Add appliance</h2>
+<form action="" method="POST" name="form">
+<p>Please provide the details for the appliance.</p>
+<div class="msg">{{ msg }}</div>
+<p>Appliance type:
+    <select id="appliance_type" name="appliance_type" onchange = "ShowHideDiv()" required>
+        <option value="none" selected disabled hidden>Select an Option</option>
+        <option value="Refrigeratorfreezer">Refrigerator/Freezer</option>
+        <option value="Cooker">Cooker</option>
+        <option value="Washer">Washer</option>
+        <option value="Dryer">Dryer</option>
+        <option value="TV">TV</option>
+    </select><br>
+    Manufacturer:
+    <select id="manufacturer_list" name="manufacturer_list" required>
+        {% for row in data %}
+        <option value="{{ row['manufacturer'] }}">{{ row['manufacturer'] }}</option>
+        {% endfor %}
+    </select><br>
+    Model name:
+    <input type="text" id="model_name" name="model_name"><br>
+</p>   
+
+<div id="Refrigeratorfreezer" class="group">
+    Refrigerator type:
+    <select id="refrigerator_type" name="refrigerator_type" required>
+        <option value="Bottom_freezer_refrigerator">Bottom Freezer/Fefrigerator</option>
+        <option value="French_door_refrigerator">French Door Refrigerator</option>
+        <option value="side-by-side_refrigerator">Side-by-side Refrigerator</option>
+        <option value="top_freezer_refrigerator">Top Freezer Refrigerator</option>
+        <option value="chest_freezer">Chest Freezer</option>
+        <option value="upright_freezer">Upright freezer</option>
+    </select><br>
+    <p> <input type="submit" value="Add" id="appliance_next2" name="appliance_next" onclick="form.submit();"></p>
+</div>    
+
+<div id="Cooker" class="group">
+    <div style="width:50%; margin: top 50%;float:left">
+        <input type="checkbox" id="cooker1" name="cooker1" value="oven">
+        <label for="cooker1">Oven</label><br>
+        Heat source:<br>
+        <input type="checkbox" id="heat_source1" name="heat_source1" value="gas">
+        <label for="heatsource1">Gas</label><br>
+        <input type="checkbox" id="heat_source2" name="heat_source2" value="electric">
+        <label for="heatsource2">Electric</label><br>
+        <input type="checkbox" id="heat_source3" name="heat_source3" value="microwave">
+        <label for="heatsource3">Microwave</label><br>
+        Type:
+        <select id="oven_type" name="oven_type" required>
+            <option value="convection">Convection</option>
+            <option value="conventional">Conventional</option>
+        </select><br>
+    </div>
+    <div style="width:50%; margin: top 50%;float:right">
+        <input type="checkbox" id="cooker2" name="cooker2" value="cooktop">
+        <label for="cooker2">Cooktop</label><br>
+        Heat source:
+        <select id="cooktop_heat_source" name="cooktop_heat_source">
+            <option value="gas">Gas</option>
+            <option value="electric">Electric</option>
+            <option value="radiant_electric">Radiant Electric</option>
+            <option value="induction">Induction</option>
+        </select><br>
+        <p> <input type="submit" value="Add" id="appliance_next2" name="appliance_next" onclick="form.submit();"></p>
+    </div>
+</div>    
+
+<div id="Washer" class="group">
+    Washer loading type:
+     <select id="loading_type" name="loading_type" required>
+        <option value="Top">Top</option>
+        <option value="Front">Front</option>
+    </select><br>
+    <p> <input type="submit" value="Add" id="appliance_next2" name="appliance_next" onclick="form.submit();"></p>
+</div>    
+
+<div id="Dryer" class="group">
+    Dryer heat source:
+     <select id="dryer_heat_source" name="dryer_heat_source" required>
+        <option value="gas">Gas</option>
+        <option value="electric">Electric</option>
+        <option value="none">None</option>
+     </select><br>
+     <p> <input type="submit" value="Add" id="appliance_next2" name="appliance_next" onclick="form.submit();"></p>
+</div>    
+
+<div id="TV" class="group">
+    Display type:
+    <select id="display_type" name="display_type" required>
+        <option value="tube">Tube</option>
+        <option value="DLP">DLP</option>
+        <option value="plasma">Plasma</option>
+        <option value="LCD">LCD</option>
+        <option value="LED">LED</option>
+    </select><br>
+    Display size (inches):
+    <input type="number" min=0 id="display_size" name="display_size" step='0.01' value='0.00' placeholder='0.00' required><br>
+    Maximum resolution:
+    <select id="maximum_resolution" name="maximum_resolution" required><br>
+        <option value="480i">480i</option>
+        <option value="720p">720p</option>
+        <option value="1080i">1080i</option>
+        <option value="1080p">1080p</option>
+        <option value="1440p">1440p</option>
+        <option value="2160p(4k)">2160p(4k)</option>
+        <option value="4320p(8k)">4320p(8k)</option>
+    </select><br>
+    <p> <input type="submit" value="Add" id="appliance_next2" name="appliance_next" onclick="form.submit();"></p>
+</div>
+
+<script type="text/javascript">
+    function ShowHideDiv() {
+        var appliance_type = document.getElementById("appliance_type");
+        var Refrigeratorfreezer = document.getElementById("Refrigeratorfreezer");
+        var Cooker = document.getElementById("Cooker");
+        var Washer = document.getElementById("Washer");
+        var Dryer = document.getElementById("Dryer");
+        var TV = document.getElementById("TV");
+        Refrigeratorfreezer.style.display = appliance_type.value == "Refrigeratorfreezer" ? "block" : "none";
+        Cooker.style.display = appliance_type.value == "Cooker" ? "block" : "none";
+        Washer.style.display = appliance_type.value == "Washer" ? "block" : "none";
+        Dryer.style.display = appliance_type.value == "Dryer" ? "block" : "none";
+        TV.style.display = appliance_type.value == "TV" ? "block" : "none";
+    }
+</script>
+
+                
+{% endblock %}

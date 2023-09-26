@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Manufacturer / Model search</h1>
+	<form action="" method="POST" target="search_result" onsubmit="">
+		<p>Please enter the manufacturer or model search string
+		<input type="text" id="search_input" name="search_input">
+		<input type="submit" id="search_input_submit" name="search_input_submit" >
+		</p>
+
+		<div id="search_result" name="search_result">
+			<p>Search results are as followed:</p>
+			<table>
+				<tr>
+					<th>{{ headings[0] }}</th>
+					<th>{{ headings[1] }}</th>
+				<tr>
+				{% for row in data%}
+				<tr>
+					{% if search_input in row['manufacturer'] %}
+					<td><span style = "background:#66FF00;">{{ row['manufacturer'] }}<span></td>
+					{% else %}
+					<td>{{ row['manufacturer'] }}</td>
+					{% endif %}
+
+					{% if search_input in row['model_name'] %}
+					<td><span style = "background:#66FF00;">{{ row['model_name'] }}<span></td>
+					{% else %}
+					<td>{{ row['model_name'] }}</td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			<table>
+		<div>
+	</form>
+   	
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>{{ state }}</h1>
+	<p>Details for TV</p>
+	<table>
+		<tr>
+        	<th> Average Display Size </th>
+			<th> Display Type </th>
+			<th> Maximum Resolution </th>
+		</tr>
+		{% for row in data %}
+		<tr> 
+			<td>{{ row['average_display_size'] }}</td>
+			<td>{{ row['display_type'] }}</td>
+			<td>{{ row['maximum_resolution'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}
